@@ -1,3 +1,110 @@
-<html>
-<a href="1.html">aaa</a><a href="1.html">aaa</a><a href="1.html">aaa</a>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta name="browsermode" content="application">
+<meta name="screen-orientation" content="portrait">
+<meta http-equiv="Content-Type" content="application/xhtml+xml;charset=utf-8" />
+<meta name="x5-page-mode" content="app">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta http-equiv="Cache-Control" content="no-transform" /> 
+<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1" />
+
+<style>
+//div{ width:200px; height:200px; overflow:auto;}
+input{height:32px}
+</style>
+
+</head>
+<body >
+<script>
+window.onload=function(){
+  ini_window();
+  get_js("xs_js_base_1.js");
+  get_js("xs_js_menu.js");
+  get_js("xs_js_control.js");
+
+  window.onresize=function(){ ini_window();}
+
+}
+
+function ini_window(){
+  d.style.lineHeight="16px";
+  c.style.height=window.innerHeight-(window.innerHeight%16)-32+"px";
+  h=c.offsetHeight;
+  e.style.height="800px";
+  //body.style.backgroundColor="green";
+ document.body.style.backgroundColor="green";
+}
+function show(m1){
+  var div=document.getElementById(m1);
+  var dis=div.style;
+  if(dis.display=="block")
+    {dis.display="none";}
+  else{dis.display="block";}
+}
+
+
+</script>
+<div id="menu_control" style="display:none">
+<div id="_menu" style="width:100%;position:absolute; Bottom:0px;">
+  <input type="button" value="上一章" 
+    onclick='n.pre_section();'></input>
+  <input type="button" value="下一章" 
+    onclick='n.next_section();'></input>
+  <input type="button" value="预读" 
+    onclick='n.pre_read();'></input>
+  <input type="button" value="保存" 
+    onclick='n.pre_save();'></input>
+  <input type="button" value="重载" 
+    onclick='location.reload();'></input>
+</div>
+<div id="_menu1" style="width:100%;height:350px;overflow:scroll;position:absolute;Bottom:30px;">
+  <input type="button" value="全屏" 
+ onclick='requestFullScreen(document.documentElement);'></input>
+  <input type="button" value="跳页" 
+onclick="n.index=parseInt(f.f_key.value)-1;n.next_section()"></input>
+  <input type="button" value="跳转" 
+onclick="n.reload('id=5&url='+f.f_key.value)">
+  <input type="button" value="add" onclick="l_add()">
+  <input type="button" value="al" onclick="l_alert()">
+  <input type="button" value="del" onclick="l_del()">
+  <input type="button" value="all" onclick="l_all()">
+
+  <input type="button" value="add" onclick="s_add()">
+  <input type="button" value="al" onclick="s_alert()">
+  <input type="button" value="del" onclick="s_del()">
+
+  <input type="button" value="all" onclick="s_all()">
+  <input type="button" value="清空"
+    onclick="f.f_txt.value='';">
+  <input type="button" value="eval" 
+    onclick="eval(f.f_txt.value);">
+  <input type="button" value="clear" 
+    onclick="sessionStorage.clear();">
+  <div id=menu_body>
+    <form id="f">
+      <input type="text" name="f_key">
+      <input type="text" name="f_val">
+
+    <textarea name="f_txt"
+       style='width:100%;height:220px'>  
+    </textarea>
+    </form>
+  </div>
+</div>
+</div>
+<div id=m onclick="_move()";>0/0</div>
+<div id="c" onclick="_move()";
+style='width:100%;height:572px;overflow:hidden;text-overflow:ellipsis;white-space:inherit;' >
+   <div id=d>
+     uuuui
+   </div>
+   <div id=e>
+     uuuui
+   </div>
+</div>
+<script src="base.js">
+
+</script>
+</body>
 </html>
